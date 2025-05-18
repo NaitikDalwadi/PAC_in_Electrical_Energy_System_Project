@@ -1,10 +1,14 @@
-data = readtable('load_profile/Dataset/filtered_dfs/SFH9.xlsx');
+data = readtable('D:/Study/Masters in Automation and IT/Semester 2/PAC in Electrical Energy System/Assignment/load_profile/Dataset/Dynamic_R_X/SFH9.xlsx');
 
 time = data.index;  % UNIX timestamps
-P = data.P_TOT;     % Active power (P)
-Q = data.Q_TOT;     % Reactive power (Q)
+R1 = data.R1;
+R2 = data.R2;
+R3 = data.R3;
+X1 = data.X1;
+X2 = data.X2;
+X3 = data.X3;
 
 time_relative = (time - time(1));  % Convert to hours relative to the first timestamp
 
-PQ = [P, Q];  % 2-column matrix: [P, Q]
-PQ_timeseries = timeseries(PQ, time_relative);
+dyn_load = [R1,R2,R3,X1,X2,X3];
+load_timeseries = timeseries(dyn_load, time_relative);
