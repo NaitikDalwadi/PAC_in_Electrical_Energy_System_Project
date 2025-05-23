@@ -1,4 +1,4 @@
-data = readtable('D:/Study/Masters in Automation and IT/Semester 2/PAC in Electrical Energy System/Assignment/load_profile/Dataset/Dynamic_R_X/SFH9.xlsx');
+data = readtable('D:/Study/Masters in Automation and IT/Semester 2/PAC in Electrical Energy System/Assignment/load_profile/Dataset/Dynamic_R_X_15_min_No_PV/SFH9.xlsx');
 
 time = data.index;  % UNIX timestamps
 R1 = data.R1;

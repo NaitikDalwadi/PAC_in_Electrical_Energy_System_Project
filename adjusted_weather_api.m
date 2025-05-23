@@ -10,8 +10,8 @@ time_seconds = seconds(time_dt - time_dt(1));
 gti = double(gti); % Ensure double format
 
 % Create timeseries
-ts_gti = timeseries(gti, time_seconds);
-assignin('base', 'ts_gti', ts_gti);
+ts_gti_1 = timeseries(gti, time_seconds);
+assignin('base', 'ts_gti', ts_gti_1);
 
 % Optional: Plot to verify
 plot(time_seconds, gti);
