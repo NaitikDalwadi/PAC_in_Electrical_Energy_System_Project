@@ -12,11 +12,11 @@ time_relative = seconds(datetime(timestamps, 'ConvertFrom', 'posixtime') - datet
 % Define the original time vector length (based on data points)
 n_points = length(time_relative);
 
-% Define the target time range (0 to 400 seconds) with dense points
-dense_time = (0:1:400)'; % 1-second intervals from 0 to 400 seconds
+% Define the target time range (0 to 4 seconds) with dense points
+dense_time = (0:0.01:4)'; % 0.01-second intervals from 0 to 4 seconds
 
-% Scale the original time to the new range (0 to 400 seconds)
-scaled_time = (time_relative / max(time_relative)) * 400;
+% Scale the original time to the new range (0 to 4 seconds)
+scaled_time = (time_relative / max(time_relative)) * 4;
 
 % Verify lengths before interpolation
 if length(scaled_time) ~= length(p_tot) || length(scaled_time) ~= length(q_tot)
@@ -37,9 +37,9 @@ output_data = [dense_time, dense_p_tot, dense_q_tot];
 % Save to workspace for Simulink
 assignin('base', 'load_data', output_data);
 
-% Display values around 100-150 seconds for verification
-idx_dense = find(dense_time >= 100 & dense_time <= 150);
-disp('Dense values around 100-150 seconds (subset):');
+% Display values around 1-1.5 seconds for verification (scaled from 100-150s to 1-1.5s)
+idx_dense = find(dense_time >= 1 & dense_time <= 1.5);
+disp('Dense values around 1-1.5 seconds (subset):');
 disp([dense_time(idx_dense(1:5:end)), dense_p_tot(idx_dense(1:5:end)), dense_q_tot(idx_dense(1:5:end))]); % Show every 5th point
 
 % Plot original and dense data
@@ -50,7 +50,7 @@ hold on;
 plot(dense_time, dense_p_tot, '-', 'DisplayName', 'Dense P_TOT');
 xlabel('Time (seconds)');
 ylabel('P_TOT (W)');
-title('Active Power (P_TOT) with Dense Spline Interpolation');
+title('Active Power (P_TOT) with Dense Spline Interpolation (4s Duration)');
 legend;
 grid on;
 
@@ -60,6 +60,6 @@ hold on;
 plot(dense_time, dense_q_tot, '-', 'DisplayName', 'Dense Q_TOT');
 xlabel('Time (seconds)');
 ylabel('Q_TOT (VAR)');
-title('Reactive Power (Q_TOT) with Dense Spline Interpolation');
+title('Reactive Power (Q_TOT) with Dense Spline Interpolation (4s Duration)');
 legend;
 grid on;
