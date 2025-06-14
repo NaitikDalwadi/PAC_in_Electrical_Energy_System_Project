@@ -1,5 +1,5 @@
 % Load the data from the Excel file
-data = readtable('D:\Study\Masters in Automation and IT\Semester 2\PAC in Electrical Energy System\Assignment\load_profile\Dataset\Dynamic_P_Q_15_min_No_PV\SFH9.xlsx');
+data = readtable('D:\Study\Masters in Automation and IT\Semester 2\PAC in Electrical Energy System\Assignment\load_profile\Dataset\Dynamic_P_Q_15_min_No_PV\SFH34.xlsx');
 
 % Extract timestamps, P_TOT, and Q_TOT
 timestamps = data.index; % Original timestamps in seconds since epoch
@@ -35,7 +35,7 @@ dense_q_tot = interp1(scaled_time, q_tot, dense_time, 'spline');
 output_data = [dense_time, dense_p_tot, dense_q_tot];
 
 % Save to workspace for Simulink
-assignin('base', 'load_data_9', output_data);
+assignin('base', 'load_data_34', output_data);
 
 % Display values around 1-1.5 seconds for verification (scaled from 100-150s to 1-1.5s)
 idx_dense = find(dense_time >= 1 & dense_time <= 1.5);
