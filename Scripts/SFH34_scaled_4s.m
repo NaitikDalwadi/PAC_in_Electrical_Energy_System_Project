@@ -1,5 +1,5 @@
 % Load the data from the Excel file
-data = readtable('Load_data\SFH34.xlsx');
+data = readtable('SFH34.xlsx');
 
 % Extract timestamps, P_TOT, and Q_TOT
 timestamps = data.index; % Original timestamps in seconds since epoch
