@@ -1,10 +1,10 @@
 % Load the data from the Excel file
-data = readtable('SFH9.xlsx');
+data = readtable('Load_data_total.xlsx');
 
 % Extract timestamps, P_TOT, and Q_TOT
 timestamps = data.index; % Original timestamps in seconds since epoch
-p_tot = data.P_TOT;      % Active power
-q_tot = data.Q_TOT;      % Reactive power
+p_tot = data.P_TOT_SUM;      % Active power
+q_tot = data.Q_TOT_SUM;      % Reactive power
 
 % Convert timestamps to a relative time vector (seconds from the start)
 time_relative = seconds(datetime(timestamps, 'ConvertFrom', 'posixtime') - datetime(timestamps(1), 'ConvertFrom', 'posixtime'));
