@@ -1,5 +1,5 @@
 % Read the Excel file, preserving original column names
-data_tariff = readtable('D:\Study\Masters in Automation and IT\Semester 2\PAC in Electrical Energy System\Assignment\Dynamic Tariffs\dynamic_tariff.xlsx', 'VariableNamingRule', 'preserve');
+data_tariff = readtable('dynamic_tariff.xlsx', 'VariableNamingRule', 'preserve');
 
 % Extract timestamps and prices from tariff data
 timestamps_tariff = data_tariff.timestamp; % Timestamps in seconds since epoch
