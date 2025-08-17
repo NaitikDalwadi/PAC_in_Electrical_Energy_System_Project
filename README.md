@@ -16,3 +16,5 @@ This study addresses the following questions:
 For this study, the one-day Global Tilted Irradiance forecast data, household load consumption 
 data from a city in southern Germany, and one-day-ahead dynamic tariff data for the Amprion 
 control region were utilized.
+
+A detailed description of the methodology and results is provided in the [report](https://github.com/NaitikDalwadi/PAC_in_Electrical_Energy_System_Project/blob/main/Report.pdf).
